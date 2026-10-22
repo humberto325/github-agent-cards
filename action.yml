@@ -1,0 +1,27 @@
+name: Agent Cards
+description: Render animated SVG cards for your GitHub profile README - a robot that walks your contribution graph and a terminal-style systems panel.
+author: Humberto Rivero
+branding:
+  icon: cpu
+  color: blue
+
+inputs:
+  github_token:
+    description: Token used to read the contribution calendar through the GraphQL API. `secrets.GITHUB_TOKEN` is enough for public contributions.
+    required: true
+  username:
+    description: GitHub username whose contributions are rendered.
+    required: false
+    default: ${{ github.repository_owner }}
+  config:
+    description: Path to a JSON config file (relative to the repository root). Optional; without it only the contribution card is rendered.
+    required: false
+    default: ''
+  output_dir:
+    description: Directory where the SVG files are written.
+    required: false
+    default: assets
+
+runs:
+  using: node24
+  main: src/index.mjs

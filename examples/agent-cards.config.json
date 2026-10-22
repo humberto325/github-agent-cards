@@ -1,0 +1,36 @@
+{
+  "theme": {
+    "light": { "accent": "#0e7490" },
+    "dark": { "accent": "#22d3ee" }
+  },
+  "command": "systems --status production",
+  "subtitle": "{count} systems running right now",
+  "cards": [
+    { "title": "Support assistant", "lines": ["Answers common questions in seconds", "and hands hard cases to a human."] },
+    { "title": "Invoice pipeline", "lines": ["Reads PDFs, extracts line items and", "syncs them to the accounting tool."] },
+    { "title": "Release bot", "lines": ["Builds, tests and tags every merge,", "then posts the changelog to chat."] },
+    { "title": "Uptime watcher", "lines": ["Checks every endpoint each minute and", "opens an incident when one fails."] }
+  ],
+  "footer": [
+    { "value": "12", "label": "workflows in production" },
+    { "value": "30K+", "label": "runs" },
+    { "value": "Node + APIs" }
+  ],
+  "languages": {
+    "es": {
+      "subtitle": "{count} sistemas corriendo ahora mismo",
+      "contributions": "{count} contribuciones en el último año",
+      "cards": [
+        { "title": "Asistente de soporte", "lines": ["Responde preguntas comunes en segundos", "y deriva los casos difíciles a una persona."] },
+        { "title": "Pipeline de facturas", "lines": ["Lee PDFs, extrae las líneas y las", "sincroniza con la contabilidad."] },
+        { "title": "Bot de releases", "lines": ["Compila, prueba y etiqueta cada merge,", "y publica el changelog en el chat."] },
+        { "title": "Monitor de uptime", "lines": ["Revisa cada endpoint cada minuto y", "abre un incidente cuando uno falla."] }
+      ],
+      "footer": [
+        { "value": "12", "label": "workflows en producción" },
+        { "value": "30K+", "label": "ejecuciones" },
+        { "value": "Node + APIs" }
+      ]
+    }
+  }
+}

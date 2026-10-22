@@ -1,0 +1,14 @@
+{
+  "name": "github-agent-cards",
+  "version": "1.0.0",
+  "description": "Animated SVG cards for your GitHub profile README: a robot that walks your contribution graph and a terminal-style systems panel.",
+  "license": "MIT",
+  "author": "Humberto Rivero",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test",
+    "demo": "node scripts/render-demo.mjs"
+  }
+}

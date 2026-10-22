@@ -1,0 +1,36 @@
+# Copy to .github/workflows/agent-cards.yml in your <username>/<username> profile repository.
+name: Update agent cards
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # daily at 03:00 UTC
+  workflow_dispatch:
+
+# Only one run at a time, so two runs never race on the same commit.
+concurrency:
+  group: agent-cards
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: humberto325/github-agent-cards@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: agent-cards.config.json # optional: omit for the contribution card only
+          output_dir: assets
+
+      - name: Commit if the cards changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/agent-*.svg
+          # Pull with rebase before pushing: another workflow may have pushed meanwhile.
+          git diff --cached --quiet || { git commit -m "chore: update agent cards" && git pull --rebase -q && git push; }
